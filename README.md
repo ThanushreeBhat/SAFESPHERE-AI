@@ -10,21 +10,20 @@ SafeSphere AI is a real-time safety platform that monitors plant telemetry, acti
 -REST API Layer: /status and /trigger-hazard endpoints for real-time simulation control.-Resilient WebSockets: Streams telemetry every 2 seconds with automatic 3-second reconnection.
 -De-duplicated Feed: Filters stream noise to surface only actionable statutory directives.
 
-🧮 Core LogicCritical Rule: 
-Gas $> 15.0\text{ PPM} \ \land$ Hot Work Active $\implies$ CRITICAL BREACH ($\ge 0.85$).Base Formula:$$\text{Base Score} = \left(\frac{\text{Gas PPM}}{15.0} \times 0.5\right) + \left(\frac{\max(\text{Temp} - 20, 0)}{60.0} \times 0.3\right) + \text{Hot Work Premium } (0.15)$$
 
 🚀 Quick Start
-1. Start BackendBashcd backend
-```python -m venv venv
+```1. Start BackendBashcd backend
+python -m venv venv
 # On Windows:
 .\venv\Scripts\activate
 # On Linux/macOS:
 # source venv/bin/activate
 
 pip install -r requirements.txt
-python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload```
+python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+
 2. Start FrontendBashcd frontend
-```npm install
-npm run dev```
+npm install
+npm run dev
 
 Open http://localhost:3000 in your browser. Click ⚡ Inject Gas Hazard to test the live incident response!
